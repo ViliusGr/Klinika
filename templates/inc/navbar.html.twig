@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{ path('/') }}">Klinika</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('/') }}">Pagrindinis
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            {% if is_granted('ROLE_USER') == false %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('login') }}">Prisijungti</a>
+            </li>
+            {% endif %}
+            {% if is_granted('ROLE_USER') == false %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('registration') }}">Registruotis</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_USER') %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('logout') }}">Atsijungti</a>
+            </li>
+            {% endif %}
+            {% if is_granted('ROLE_PATIENT') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('create_appointment') }}">Registruotis pas daktarą</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_PATIENT') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('see_messages') }}">Žinutės</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('registration_doctor') }}">Registruoti daktarą</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('create_specialty') }}">Kurti specialybę</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('create_schedule') }}">Kurti tvarkaraštį</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_DOCTOR') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('list_appointments') }}">Mano pacientai</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

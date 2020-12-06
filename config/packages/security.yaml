@@ -1,0 +1,44 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+    providers:
+        my_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            lazy: true
+            form_login:
+                username_parameter: _email
+                login_path: login
+                check_path: login
+                provider: my_provider
+            logout:
+                path: /logout
+                target: /
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/populateTable, roles: ROLE_ADMIN }
+        - { path: ^/registration/doctor, roles: ROLE_ADMIN }
+        - { path: ^/specialties/create, roles: ROLE_ADMIN }
+        - { path: ^/schedule/create, roles: ROLE_ADMIN }
+        - { path: ^/appointment/create, roles: ROLE_PATIENT }
+        - { path: ^/message/list, roles: ROLE_PATIENT }
+        - { path: ^/appointment/list, roles: ROLE_DOCTOR }
+        - { path: ^/message/send, roles: ROLE_DOCTOR }
+        - { path: ^/logout, roles: ROLE_USER }
+        # - { path: ^/profile, roles: ROLE_USER }

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Specialybės registracija{% endblock %}
+
+{% block body %}
+    <h1>Specialybės registracija</h1>
+    {{ form_start(form)}}
+    <div class="container form-group">
+        {{ form_label(form.id) }}
+        <div class="klaida">
+            {{ form_errors(form.id) }}
+        </div>
+        {{ form_widget(form.id) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.name) }}
+        <div class="klaida">
+            {{ form_errors(form.name) }}
+        </div>
+        {{ form_widget(form.name) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.subgroup) }}
+        <div class="klaida">
+            {{ form_errors(form.subgroup) }}
+        </div>
+        {{ form_widget(form.subgroup) }}
+    </div>
+    <div class="container form-group">
+        {{ form_row(form.save) }}
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    <script src="/schedule_timepicker.js"></script>
+{% endblock %}
+
+{% block title %}Tvarkaraščio registracija{% endblock %}
+
+{% block body %}
+    <h1>Tvarkaraščio registracija</h1>
+    {{ form_start(form)}}
+    <div class="container form-group">
+        {{ form_label(form.duration) }}
+        <div class="klaida">
+            {{ form_errors(form.duration) }}
+        </div>
+        {{ form_widget(form.duration) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.doctor) }}
+        <div class="klaida">
+            {{ form_errors(form.doctor) }}
+        </div>
+        {{ form_widget(form.doctor) }}
+    </div>
+    <div class="container form-row">
+        {% for day in form.days %}
+            <div class="form-group col-sm">
+                {{ form_row(day) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container form-group">
+        {{ form_row(form.save) }}
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

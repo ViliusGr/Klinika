@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mano žinutės{% endblock %}
+
+{% block body %}
+    <h1>Mano žinutės</h1>
+
+    <table class="table table-hover">
+        <thead>
+        <tr class="table-primary">
+            <th scope="col">Daktaras</th>
+            <th scope="col">Išsiuntimo laikas</th>
+            <th scope="col">Antraštė</th>
+            <th scope="col">Žinutė</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr class="table-primary">
+                <td>{{ message.sender }}</td>
+                <td>{{ message.sentAtString }}</td>
+                <td>{{ message.title }}</td>
+                <td>{{ message.text }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

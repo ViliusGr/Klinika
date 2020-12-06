@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paciento registracija{% endblock %}
+
+{% block javascripts %}
+    <script src="/appointment_timepicker.js"></script>
+    <script type="text/javascript" src="/appointment_datepicker.js"></script>
+{% endblock %}
+
+{% block body %}
+
+        <h1>Paciento registracija vizitui</h1>
+        <div data-route="{{ path("getTimes") }}"></div>
+        {{ form_start(form)}}
+        <div class="container form-group">
+            {{ form_label(form.doctor) }}
+            <div class="klaida">
+                {{ form_errors(form.doctor) }}
+            </div>
+            {{ form_widget(form.doctor) }}
+        </div>
+        <div class="container form-group">
+            {{ form_label(form.date) }}
+            <div class="klaida">
+                {{ form_errors(form.date) }}
+            </div>
+            {{ form_widget(form.date) }}
+        </div>
+        <div class="container form-group">
+            {{ form_label(form.time) }}
+            <div class="klaida">
+                {{ form_errors(form.time) }}
+            </div>
+            {{ form_widget(form.time) }}
+        </div>
+        <div class="container form-group">
+            {{ form_label(form.info) }}
+            <div class="klaida">
+                {{ form_errors(form.info) }}
+            </div>
+            {{ form_widget(form.info) }}
+        </div>
+        <div class="container form-group">
+            <input type="submit" value="Registruotis" class="btn btn-primary"/>
+        </div>
+        {{ form_end(form) }}
+
+{% endblock %}

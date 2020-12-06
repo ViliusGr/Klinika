@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+
+    <h1>Prisijungimas</h1>
+
+    {% if error %}
+        <span class="klaida">{{ error.messageKey|trans }}</span>
+    {% endif %}
+
+    <form action="{{ path('login') }}" method="post">
+        <div class="container form-group">
+            <label for="_email">El. paštas</label>
+            <input type="email" name="_email" value="{{ last_username }}" placeholder="pavyzdys@pavyzdys.lt" class="form-control">
+        </div>
+        <div class="container form-group">
+            <label for="_password">Slaptažodis</label>
+            <input type="password" name="_password" class="form-control">
+        </div>
+        <div class="container form-group">
+            <button type="submit" class="btn btn-primary">Prisijungti</button>
+        </div>
+    </form>
+
+{% endblock %}

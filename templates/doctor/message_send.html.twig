@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Siųsti žinutę pacientui{% endblock %}
+
+{% block body %}
+
+    <h1>Siųsti žinutę pacientui</h1>
+
+    {{ form_start(form)}}
+        <div class="container form-group">
+            {{ form_label(form.title) }}
+            <div class="klaida">
+                {{ form_errors(form.title) }}
+            </div>
+            {{ form_widget(form.title) }}
+        </div>
+        <div class="container form-group">
+            {{ form_label(form.text) }}
+            <div class="klaida">
+                {{ form_errors(form.text) }}
+            </div>
+            {{ form_widget(form.text) }}
+        </div>
+    {{ form_end(form) }}
+
+{% endblock %}

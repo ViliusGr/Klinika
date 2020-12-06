@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mano pacientai{% endblock %}
+
+{% block body %}
+        <h1>Mano pacientai</h1>
+
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-primary">
+                <th scope="col">Pacientas</th>
+                <th scope="col">Data</th>
+                <th scope="col">Laikas</th>
+                <th scope="col">Papildoma informacija</th>
+                <th scope="col">Siųsti žinutę</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for appointment in appointments %}
+                <tr class="table-primary">
+                    <td>{{ appointment.patient }}</td>
+                    <td>{{ appointment.getDateString }}</td>
+                    <td>{{ appointment.getTimeString }}</td>
+                    <td>{{ appointment.info }}</td>
+                    <td>
+                        <a class="btn btn-secondary"
+                           href="/message/send/{{ appointment.doctor.id }}/{{ appointment.patient.id }}">Siųsti</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+{% endblock %}

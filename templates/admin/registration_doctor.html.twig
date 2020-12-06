@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Daktaro registracija{% endblock %}
+
+{% block body %}
+    <h1>Daktaro registracija</h1>
+    {{ form_start(form)}}
+    <div class="container form-group">
+        {{ form_label(form.emplid) }}
+        <div class="klaida">
+            {{ form_errors(form.emplid) }}
+        </div>
+        {{ form_widget(form.emplid) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.specialty) }}
+        <div class="klaida">
+            {{ form_errors(form.specialty) }}
+        </div>
+        {{ form_widget(form.specialty) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.user.name) }}
+        <div class="klaida">
+            {{ form_errors(form.user.name) }}
+        </div>
+        {{ form_widget(form.user.name) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.user.surname) }}
+        <div class="klaida">
+            {{ form_errors(form.user.surname) }}
+        </div>
+        {{ form_widget(form.user.surname) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.user.email) }}
+        <div class="klaida">
+            {{ form_errors(form.user.email) }}
+        </div>
+        {{ form_widget(form.user.email) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.user.phoneNumber) }}
+        <div class="klaida">
+            {{ form_errors(form.user.phoneNumber) }}
+        </div>
+        {{ form_widget(form.user.phoneNumber) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.user.plainPassword.first) }}
+        <div class="klaida">
+            {{ form_errors(form.user.plainPassword.first) }}
+        </div>
+        {{ form_widget(form.user.plainPassword.first) }}
+    </div>
+    <div class="container form-group">
+        {{ form_label(form.user.plainPassword.second) }}
+        <div class="klaida">
+            {{ form_errors(form.user.plainPassword.second) }}
+        </div>
+        {{ form_widget(form.user.plainPassword.second) }}
+
+    </div>
+    <div class="container form-group">
+        {{ form_row(form.user.save) }}
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
