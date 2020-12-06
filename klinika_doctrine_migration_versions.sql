@@ -1,0 +1,1 @@
+INSERT INTO klinika.doctrine_migration_versions (version, executed_at, execution_time) VALUES ('DoctrineMigrations\\Version20201123165112', '2020-11-23 18:51:18', 21);
