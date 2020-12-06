@@ -20,7 +20,7 @@ class UserFixture extends Fixture
     {
         $user = new User();
         $user->setPassword(
-            $this->encoder->encodePassword($user, '123456')
+            $this->encoder->encodePassword($user, 'Admin123')
         );
         $user->setEmail('a@a.com');
         $user->setPhoneNumber('+37069781645');

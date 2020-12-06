@@ -22,7 +22,13 @@ class UserType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Vardas',
-                'constraints' => [new Length(['max' => 255])],
+                'constraints' => [
+                    new Length(['max' => 255]),
+                    new Regex([
+                        'pattern' => '/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.\'-]+$/u',
+                        'message' => "Varde gali būti tik raidės!"
+                    ])
+                ],
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Vardas'
@@ -30,7 +36,13 @@ class UserType extends AbstractType
             ])
             ->add('surname', TextType::class, [
                 'label' => 'Pavardė',
-                'constraints' => [new Length(['max' => 255])],
+                'constraints' => [
+                    new Length(['max' => 255]),
+                    new Regex([
+                        'pattern' => '/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.\'-]+$/u',
+                        'message' => "Pavardėje gali būti tik raidės!"
+                    ])
+                ],
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Pavardė'
@@ -46,7 +58,13 @@ class UserType extends AbstractType
             ])
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Telefono numeris',
-                'constraints' => [new Length(['min' => 8,'max' => 15])],
+                'constraints' => [
+                    new Length(['min' => 8,'max' => 15]),
+                    new Regex([
+                        'pattern' => '/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.0-9]*$/',
+                        'message' => "Blogas telefono numerio formatas!"
+                    ])
+                ],
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => '+37099999999',

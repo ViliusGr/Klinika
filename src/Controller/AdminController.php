@@ -116,7 +116,7 @@ class AdminController extends AbstractController
     {
         $manager = $this->getDoctrine()->getManager();
 
-        /*$day = new DayOfWeek();
+        $day = new DayOfWeek();
         $day->setName('Pirmadienis');
         $manager->persist($day);
         $manager->flush();
@@ -149,7 +149,7 @@ class AdminController extends AbstractController
         $day = new DayOfWeek();
         $day->setName('Sekmadienis');
         $manager->persist($day);
-        $manager->flush();*/
+        $manager->flush();
 
         return $this->render('default/index.html.twig', [
             'controller_name' => 'AdminController',
